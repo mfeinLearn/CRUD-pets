@@ -1,0 +1,17 @@
+<h1><%= @vet.name %></h1>
+
+<h2><%= @vet.location %></h2>
+<h3>Specialty: <%= @vet.speciality %></h3>
+<p>
+  <%= link_to "See all Reviews", vet_reviews_path(@vet.id) %>
+  <%= link_to "Write a New Review", new_vet_review_path(@vet.id) %>
+</p>
+
+<h4>Clients:</h4>
+<ul>
+  <% @vet.pets.order_by_age.each do |pet| %>
+  <li>
+    <%= pet.name %> - <%= pet.age %> - order: <%= pet.user.try(:username) %>
+  </li>
+  <% end %>
+</ul>

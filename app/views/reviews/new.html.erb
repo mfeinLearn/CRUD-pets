@@ -1,0 +1,16 @@
+<h1>Write your Review for <%= @review.vet.name %></h1>
+
+<%= form_for [@vet, @review] do |f| %>
+  <%= f.hidden_field :vet_id %>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label :rating, "from 1-10" %>
+    <%= f.number_field :rating, min: 0, max: 10 %>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>

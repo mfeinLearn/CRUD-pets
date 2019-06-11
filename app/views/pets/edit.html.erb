@@ -3,6 +3,8 @@
 
 <%= form_for(@pet) do |f| %>
 
+<%= render partial: 'layouts/errors', locals: {object: @pet} %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
